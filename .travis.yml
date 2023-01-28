@@ -1,4 +1,9 @@
+# Required to run your project under the correct environment.
 language: php
+
+# Versions of PHP you want your project run with.
+php:
+  - 8.1
 
 deploy:
   provider: pages
@@ -15,6 +20,11 @@ services:
 env:
   COMPOSE_VERSION: 1.4.1
 
+# Commands to be run before your environment runs.
+before_script:
+  - #composer self-update
+  - #composer install --prefer-source --no-interaction --dev
+
 before_install:
  - echo "begin deploy"
 
@@ -24,6 +34,11 @@ script:
   - #docker-compose build
   - #docker-compose down
   - #docker-compose up -d
+  - echo "Build done"
 
+# Customize when the notification emails are sent.
 notifications:
   email: true
+  on_success: never
+  on_failure: always
+
