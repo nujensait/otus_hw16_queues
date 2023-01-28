@@ -19,6 +19,8 @@ before_install:
  - echo "begin deploy"
 
 script:
+  - mv .env.example .env
+  - cd code && composer install && cd ../
   - docker-compose build
   - docker-compose upo -d
 
