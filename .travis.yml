@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+env:
+  COMPOSE_VERSION: 1.4.1
+
+before_install:
+ - echo "begin deploy"
+
+script:
+  - docker-compose build
+  - docker-compose upo -d
+
+notifications:
+  email: true
