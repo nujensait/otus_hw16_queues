@@ -8,7 +8,7 @@ php:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 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
+  github_token: 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
   keep_history: true
   on:
     branch: main
