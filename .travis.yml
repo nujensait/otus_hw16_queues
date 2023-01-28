@@ -8,7 +8,7 @@ php:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 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
+  github_token: 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
   keep_history: true
   on:
     branch: main
@@ -22,18 +22,19 @@ env:
 
 # Commands to be run before your environment runs.
 before_script:
+  - #cp .env.example .env
+  - #cd code
   - #composer self-update
   - #composer install --prefer-source --no-interaction --dev
+  - #cd ../
 
 before_install:
  - echo "begin deploy"
 
 script:
-  - #mv .env.example .env
-  - #cd code && composer update && cd ../
+  - docker-compose down
   - #docker-compose build
-  - #docker-compose down
-  - #docker-compose up -d
+  - docker-compose up -d
   - echo "Build done"
 
 # Customize when the notification emails are sent.
