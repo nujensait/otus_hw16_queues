@@ -1,5 +1,13 @@
 language: php
 
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: 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
+  keep_history: true
+  on:
+    branch: main
+
 sudo: required
 services:
   - docker
