@@ -8,7 +8,7 @@ php:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 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
+  github_token: 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
   keep_history: true
   on:
     branch: main
@@ -32,9 +32,9 @@ before_install:
  - echo "begin deploy"
 
 script:
-  - docker-compose down
+  - #docker-compose down
   - #docker-compose build
-  - docker-compose up -d
+  - #docker-compose up -d
   - echo "Build done"
 
 # Customize when the notification emails are sent.
