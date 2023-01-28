@@ -19,9 +19,10 @@ before_install:
  - echo "begin deploy"
 
 script:
-  - mv .env.example .env
-  - cd code && composer update && cd ../
-  - docker-compose build
+  - #mv .env.example .env
+  - #cd code && composer update && cd ../
+  - #docker-compose build
+  - docker-compose down
   - docker-compose up -d
 
 notifications:
