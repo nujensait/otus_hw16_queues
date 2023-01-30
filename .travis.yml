@@ -30,24 +30,24 @@ before_install:
   - #composer self-update
   - #composer install --prefer-source --no-interaction --dev
   - #cd ../
-  - echo "Code setup done"
+  #- echo "Code setup done"
 
 # steps before
 before_script:
-  - cp code/src/Application/Views/info.php code/src/Application/Views/tmp.php
-  - mv code/src/Application/Views/deploy.php code/src/Application/Views/info.php
-  - echo "Begin deploy"
+  - #cp code/src/Application/Views/info.php code/src/Application/Views/tmp.php
+  - #mv code/src/Application/Views/deploy.php code/src/Application/Views/info.php
+  - #echo "Begin deploy"
 
 # deployment scripts
 script:
   - #docker-compose down
   - #docker-compose build
   - #docker-compose up -d
-  - echo "Build done"
+  - #echo "Build done"
 
 # after deploy
 after_script:
-  - cp code/src/Application/Views/tmp.php code/src/Application/Views/info.php
+  - #cp code/src/Application/Views/tmp.php code/src/Application/Views/info.php
 
 # Customize when the notification emails are sent.
 notifications:
