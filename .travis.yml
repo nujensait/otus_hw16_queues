@@ -10,7 +10,7 @@ php:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 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
+  api_key: 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
   keep_history: true
   on:
     branch: main
