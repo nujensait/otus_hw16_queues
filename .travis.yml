@@ -7,13 +7,13 @@ php:
   - 8.1
 
 # deployment settings
-deploy:
-  provider: pages
-  skip_cleanup: true
-  api_key: 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
-  keep_history: true
-  on:
-    branch: main
+#deploy:
+#  provider: pages
+#  skip_cleanup: true
+#  api_key: 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
+#  keep_history: true
+#  on:
+#    branch: main
 
 sudo: required
 services:
@@ -22,38 +22,31 @@ services:
 # enviroment variables
 env:
   DEPLOY_VERSION: 1.0
-  #COMPOSE_VERSION: 1.4.1
-
-# Commands to be run before your environment runs.
-before_install:
-  #- cp .env.example .env
-  #- cd code
-  #- #composer self-update
-  #- composer install --prefer-source --no-interaction --dev
-  #- cd ../
-  #- echo "Code setup done"
-  skip
+  COMPOSE_VERSION: 1.4.1
 
 # steps before
 before_script:
-  #- cp code/src/Application/Views/info.php code/src/Application/Views/tmp.php
-  #- mv code/src/Application/Views/deploy.php code/src/Application/Views/info.php
-  #- echo "Begin deploy"
-  skip
+  - cp .env.example .env
+  - cd code
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+  - cd ../
+  - cp code/src/Application/Views/info.php code/src/Application/Views/tmp.php
+  - mv code/src/Application/Views/deploy.php code/src/Application/Views/info.php
+  - pwd
 
 # deployment scripts
 script:
   - docker-compose down
   - docker-compose build
   - docker-compose up -d
-  - echo "Build done"
+  - pwd
 
 # after deploy
 after_script:
-  #- cp code/src/Application/Views/tmp.php code/src/Application/Views/info.php
-  skip
+  - cp code/src/Application/Views/tmp.php code/src/Application/Views/info.php
+  - pwd
 
 # Customize when the notification emails are sent.
 notifications:
   email: true
-
